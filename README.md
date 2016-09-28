@@ -4,6 +4,11 @@
 
 * Members of the filter are `String` instances
 
+### Installation
+
+1. Install Ruby 2.2 or 2.3 on your machine (beyond the scope of this README)
+1. Use Bundler to install the gem dependencies, e.g. `bundle install`
+
 ### Basic operation
 
 You can test the false-positive rate against a dictionary by piping the
