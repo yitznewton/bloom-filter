@@ -1,4 +1,10 @@
 Documentation:
   Enabled: false
+Style/BlockDelimiters:
+  Enabled: false
 Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/MultilineBlockChain:
+  Enabled: false
+Style/NumericLiterals:
   Enabled: false

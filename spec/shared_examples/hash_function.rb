@@ -17,10 +17,11 @@ shared_examples_for 'a hash function' do
 
   it 'returns differing values', manual: true do
     # for most cases (some pairs legitimately hash the same)
+    # TODO: find a way to allow for a margin of error
     property_of {
       [string, string]
-    }.check(property_test_runs) { |item_0, item_1|
-      expect(subject.call(item_0)).not_to eq(subject.call(item_1))
+    }.check(property_test_runs) { |item0, item1|
+      expect(subject.call(item0)).not_to eq(subject.call(item1))
     }
   end
 end
