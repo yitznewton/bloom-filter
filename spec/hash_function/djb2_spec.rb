@@ -4,7 +4,7 @@ require 'hash_function/djb2'
 describe HashFunction::Djb2 do
   subject { described_class.new(bitmap_size) }
 
-  let(:bitmap_size) { 100000 }
+  let(:bitmap_size) { 10000 }
   let(:property_test_runs) { 10000 }
 
   it 'is in expected range' do
@@ -23,7 +23,7 @@ describe HashFunction::Djb2 do
     }
   end
 
-  xit 'returns differing values' do
+  it 'returns differing values', manual: true do
     # for most cases (some pairs legitimately hash the same)
     property_of {
       [string, string]
