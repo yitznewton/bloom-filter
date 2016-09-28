@@ -4,6 +4,17 @@
 
 * Members of the filter are `String` instances
 
+### Basic operation
+
+You can test the false-positive rate against a dictionary by piping the
+dictionary into `STDIN`:
+
+```shell
+$ ruby random_word_test.rb --bitmap-size=100_000_000 --random-word-count=10_000 < /usr/share/dict/words
+```
+
+The test script currently uses the DJB2 and DJB2A hash algorithms.
+
 ### Hash functions
 
 Any lambda-like which accepts a `String` and returns an `Integer` can
