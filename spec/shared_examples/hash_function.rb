@@ -7,7 +7,7 @@ shared_examples_for 'a hash function' do
     }
   end
 
-  it 'returns differing values', manual: true do
+  it 'returns differing values for different strings', manual: true do
     # for most cases (some pairs legitimately hash the same)
     # TODO: find a way to allow for a margin of error
     property_of {
