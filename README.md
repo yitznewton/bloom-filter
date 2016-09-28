@@ -1,5 +1,22 @@
 ## Bloom filter in Ruby
 
+### Assumptions
+
+* Members of the filter are `String` instances
+
+### Hash functions
+
+Any lambda-like which accepts a `String` and returns an `Integer` can
+serve as a hash function:
+
+```ruby
+item = 'hello world'
+hash_function.call(item)
+# > 1234
+```
+
+Several well-known hash algorithms have been provided as modules.
+
 ### Running the test suite
 
 Travis runs automated tests and Rubocop style checking, which you can do
