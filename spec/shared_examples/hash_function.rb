@@ -3,7 +3,7 @@ shared_examples_for 'a hash function' do
     property_of {
       string
     }.check(property_test_runs) { |item|
-      expect(subject.call(item)).to eq(subject.call(item))
+      expect(subject.call(item)).to eq(subject.call(item.dup))
     }
   end
 
