@@ -6,6 +6,9 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/MultilineBlockChain:
   Enabled: false
+Style/NegatedIf:
+  Exclude:
+    - spec/*
 Style/NumericLiterals:
   Enabled: false
 Style/SignalException:

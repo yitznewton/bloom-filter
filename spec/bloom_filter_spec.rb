@@ -32,7 +32,7 @@ describe BloomFilter do
       subject.add('hello')
 
       Rantly.map(property_test_runs) { string }.each do |item|
-        pass = true unless subject.include?(item)
+        pass = true if !subject.include?(item)
       end
 
       fail unless pass
