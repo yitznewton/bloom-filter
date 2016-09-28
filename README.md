@@ -1,4 +1,4 @@
-## Bloom filter in Ruby
+## Bloom Filter in Ruby
 
 ### Assumptions
 
@@ -43,6 +43,37 @@ cases due to the nature of the system under test; they can be run via:
 ```shell
 $ bundle exec rspec -t manual
 ```
+
+### Design overview
+
+I've implemented the specific hash functions as callable modules for ease
+of naming and requiring them; it would be just as valid to use lambdas,
+or objects in case configuration be required.
+
+For my default hash functions, I searched around for simple effective
+hashing functions, and implemented the DJB2 algorithms. I also included
+a simple function using Ruby's `String#unpack` and converting the binary
+result into an `Integer`. I'm not sure of the greater implications of using
+that algorithm.
+
+Given the nature of the kata, it seemed an ideal opportunity to try out
+property-based testing. I've read about it before, but this is my first
+time using the technique.
+
+I was able to use the TDD cycle while specifying general behavior. The
+testing libraries I chose (RSpec and Rantly) do not appear to support the
+ambiguity of the Bloom Filter's false positive policy, and so I had to
+exclude those tests from the automated build until I can figure out how
+to accomodate them.
+
+I wrote a test script to play around with different sizes of bitmap as in
+"Part two" of the kata. With a bitmap of 100M (3 orders of magnitude larger
+than my computer's dictionary), I was able to get a false-positive rate of
+under 1%. It was not a linear relationship; with 1M capacity, the rate was
+roughly 15%.
+
+False-positive rate was adversely affected when I added a third hash
+function.
 
 ### TODO
 
