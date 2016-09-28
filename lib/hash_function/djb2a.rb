@@ -1,10 +1,10 @@
 module HashFunction
-  module Djb2
+  module Djb2a
     def self.call(item)
       hash = 5381
 
       item.each_byte do |b|
-        hash = (((hash << 5) + hash) + b) % (2**32)
+        hash = (((hash << 5) + hash) ^ b) % (2**32)
       end
 
       hash

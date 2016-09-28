@@ -1,12 +1,4 @@
 shared_examples_for 'a hash function' do
-  it 'is in expected range' do
-    property_of {
-      string
-    }.check(property_test_runs) { |item|
-      expect(0..bitmap_size).to cover(subject.call(item))
-    }
-  end
-
   it 'returns the same value for the same string' do
     property_of {
       string

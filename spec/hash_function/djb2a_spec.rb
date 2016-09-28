@@ -1,8 +1,8 @@
 require 'spec_helper'
 require 'shared_examples/hash_function'
-require 'hash_function/djb2'
+require 'hash_function/djb2a'
 
-describe HashFunction::Djb2 do
+describe HashFunction::Djb2a do
   subject { described_class }
 
   let(:bitmap_size) { 10000 }
