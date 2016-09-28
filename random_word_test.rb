@@ -26,9 +26,8 @@ STDIN.each do |line|
   filter.add(line.chomp)
 end
 
-positives = Rantly.map(options[:random_word_count]) { string }.select { |item|
-  filter.include?(item)
-}
+random_words = Rantly.map(options[:random_word_count]) { string }
+positives = random_words.select { |item| filter.include?(item) }
 
 puts 'Positives:'
 puts positives.join(' ')
