@@ -7,7 +7,17 @@ class BloomFilter
     @bitmap = BitArray.new(bitmap_size)
   end
 
-  def include?(_)
+  def add(item)
+    hash_functions.each do |hf|
+      bitmap[hf.call(item) % bitmap_size] = 1
+    end
+  end
+
+  def include?(item)
+    hash_functions.each do |hf|
+      return true if bitmap[hf.call(item) % bitmap_size] == 1
+    end
+
     false
   end
 
